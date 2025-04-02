@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oops! Page Not Found</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Comic+Neue:wght@700&display=swap">
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            background-size: 400% 400%;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            overflow-x: hidden;
+            min-height: 100vh;
+            animation: gradientBG 15s ease infinite;
+            transition: all 0.5s;
+        }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        h1, h2 {
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #ffcc00;
+            font-size: 1.8rem;
+        }
+
+        /* Container for content */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Error Number */
+        .error-number {
+            font-size: 10rem;
+            font-weight: 900;
+            color: rgba(255,255,255,0.2);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+            text-shadow: none;
+        }
+
+        /* Error Message */
+        .error-message {
+            margin: 30px 0;
+            font-size: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Button Container */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        /* Magic Button */
+        .magic-button {
+            background: linear-gradient(45deg, #ff00cc, #cc00ff, #00ccff);
+            background-size: 200% 200%;
+            color: white;
+            padding: 18px 36px;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease-in-out;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            animation: gradientPulse 3s ease infinite, float 4s ease-in-out infinite;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            min-width: 250px;
+        }
+
+        .magic-button:hover {
+            animation: gradientPulseFast 1s ease infinite, floatFast 2s ease-in-out infinite;
+            transform: scale(1.05) rotateY(10deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .magic-button.secondary {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+        }
+
+        @keyframes gradientPulse {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Moving Emojis */
+        .emoji {
+            display: inline-block;
+            animation: emojiFloat 3s infinite ease-in-out;
+            font-size: 2rem;
+            margin: 0 5px;
+        }
+
+        @keyframes emojiFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(5deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(-5deg); }
+        }
+
+        /* Broken Link Animation */
+        .broken-link {
+            display: inline-block;
+            animation: shake 0.5s infinite alternate;
+        }
+
+        @keyframes shake {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+
+        /* Search Box */
+        .search-box {
+            margin: 30px auto;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-size: 1.1rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s;
+            padding-right: 50px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            background: rgba(255,255,255,0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .search-button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: linear-gradient(45deg, #ffcc00, #ff9500);
+            color: #333;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.1);
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .nav-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Magic Effects */
+        .magic-sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkle 1s forwards;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: translate(0, 0) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Floating Objects */
+        .floating-object {
+            position: absolute;
+            pointer-events: none;
+            animation: floatAround 15s infinite linear;
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        @keyframes floatAround {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(50px, -30px) rotate(90deg);
+            }
+            50% {
+                transform: translate(100px, 0) rotate(180deg);
+            }
+            75% {
+                transform: translate(50px, 30px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .error-number {
+                font-size: 8rem;
+                top: -20px;
+            }
+            .container {
+                padding: 30px 20px;
+            }
+            .magic-button {
+                padding: 15px 25px;
+                font-size: 18px;
+                min-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <div class="error-number">404</div>
+        
+        <h1>Oops! <span class="emoji">😲</span></h1>
+        <h2>Page Not Found <span class="broken-link">🔗</span></h2>
+        
+        <div class="error-message">
+            <p>The page you're looking for seems to have disappeared into the digital void <span class="emoji">🌌</span></p>
+            <p>Don't worry though! Let's get you back on track <span class="emoji">🚀</span></p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search our website...">
+            <button class="search-button">🔍</button>
+        </div>
+        
+        <div class="button-container">
+            <button class="magic-button secondary" onclick="goBack(2nd fun.html)">
+                Go Back <span class="emoji">↩️</span>
+            </button>
+            <button class="magic-button" onclick="goHome(2nd fun.html)">
+                Take Me Home <span class="emoji">✨</span>
+            </button>
+        </div>
+        
+        <div class="nav-links">
+            <a href="https://www.friv.com/" class="nav-link">Home</a>
+            <a href="https://www.friv.com/" class="nav-link">About</a>
+            <a href="https://www.friv.com/" class="nav-link">Contact</a>
+            <a href="https://www.friv.com/" class="nav-link">Help</a>
+        </div>
+    </div>
+
+    <!-- Floating Objects -->
+    <div class="floating-object" style="top: 20%; left: 10%; font-size: 3rem;">🛸</div>
+    <div class="floating-object" style="top: 70%; left: 80%; font-size: 4rem;">👾</div>
+    <div class="floating-object" style="top: 40%; left: 30%; font-size: 2.5rem;">🪐</div>
+    <div class="floating-object" style="top: 60%; left: 60%; font-size: 3.5rem;">🌠</div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; display: none;"></canvas>
+
+    <script>
+        // Go back to previous page
+        function goBack(2nd fun,html) {
+            // Create confetti effect
+            createConfetti();
+            
+            // Wait for confetti animation then go back
+            setTimeout(() => {
+                if (document.referrer && document.referrer.indexOf(window.location.host) !== -1) {
+                    window.history.back();
+                } else {
+                    // If no referrer or from different domain, go home instead
+                    window.location.href = 'index.html';
+                }
+            }, 800);
+        }
+
+        // Go home function
+        function goHome() {
+            createConfetti();
+            setTimeout(() => {
+                window.location.href = 'index.html'; // Change to your home page URL
+            }, 800);
+        }
+
+        // Create confetti effect
+        function createConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            canvas.style.display = 'block';
+            
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff']
+            });
+            
+            setTimeout(() => {
+                canvas.style.display = 'none';
+            }, 2000);
+        }
+
+        // Create random sparkles
+        function createRandomSparkles() {
+            for (let i = 0; i < 5; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('magic-sparkle');
+                
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                const hue = Math.random() * 360;
+                
+                sparkle.style.backgroundColor = `hsl(${hue}, 100%, 50%)`;
+                sparkle.style.boxShadow = `0 0 15px 3px hsl(${hue}, 100%, 50%)`;
+                sparkle.style.setProperty('--tx', `${(Math.random() - 0.5) * 50}px`);
+                sparkle.style.setProperty('--ty', `${(Math.random() - 0.5) * 50}px`);
+                sparkle.style.left = `${x}px`;
+                sparkle.style.top = `${y}px`;
+                
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 1000);
+            }
+        }
+
+        // Add some random sparkles occasionally
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                createRandomSparkles();
+            }
+        }, 3000);
+
+        // Search functionality
+        document.querySelector('.search-button').addEventListener('click', () => {
+            const searchTerm = document.querySelector('.search-input').value;
+            if (searchTerm.trim()) {
+                alert(`Searching for: ${searchTerm}\n(This would normally redirect to search results)`);
+                // In a real implementation, you would redirect to search results
+                // window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
+            }
+        });
+
+        // Allow Enter key to trigger search
+        document.querySelector('.search-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                document.querySelector('.search-button').click();
+            }
+        });
+
+        // Create initial sparkles
+        window.addEventListener('load', () => {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    createRandomSparkles();
+                }, i * 100);
+            }
+            
+            // Check if we have a referrer from our own site
+            const hasValidReferrer = document.referrer && document.referrer.indexOf(window.location.host) !== -1;
+            document.querySelector('.error-message').innerHTML += 
+                `<p>${hasValidReferrer ? 'You came from: ' + new URL(document.referrer).pathname : ''}</p>`;
+        });
+    </script>
+    
+    <!-- Confetti JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+</body>
+</html>
